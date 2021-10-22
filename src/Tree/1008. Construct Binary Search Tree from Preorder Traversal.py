@@ -4,6 +4,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
     def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
         
@@ -30,16 +31,14 @@ class Solution:
                 left = mid + 1
             else:
                 right = mid
-            
-        print("Final left,right = ",left,right)
+
+        # Index of left will be starting of right sub tree
         
         # If value of leftmost is less than value of root this indicates there is no right sub tree
         if(preorder[left] < root.val):
-            print(preorder)
-            print("If")
             root.left = self.bstFromPreorder(preorder[1:])
         else:
             root.left = self.bstFromPreorder(preorder[1:left])
             root.right = self.bstFromPreorder(preorder[left:])
-        print("-------")
+            
         return root

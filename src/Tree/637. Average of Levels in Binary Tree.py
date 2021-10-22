@@ -1,8 +1,9 @@
-#Given the root of a binary tree, return the average value of the nodes on each level in the form of an array. Answers within 10-5 of the actual answer will be accepted.
+#Given the root of a binary tree, return the average value of the nodes on each level in the form of an array. 
+# Answers within 10-5 of the actual answer will be accepted.
 
 # Similar to Binary Tree level order traversal
 
- class Solution:
+class Solution:
     def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
         res = []
         
