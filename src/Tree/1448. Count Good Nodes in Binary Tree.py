@@ -30,3 +30,24 @@ class Solution:
             return rootVal + leftVal + rightVal
         
         return dfs(root,root.val)
+
+# Sol 2
+
+class Solution:
+    def goodNodes(self, root: TreeNode) -> int:
+        
+        res = [0]
+        def dfs(root,maxVal):
+            
+            if not root:
+                return 0
+            
+            if(root.val >= maxVal):
+                res[0] += 1
+                maxVal = root.val
+                
+            dfs(root.left,maxVal)
+            dfs(root.right,maxVal)
+            
+        dfs(root,root.val)
+        return res[0]
