@@ -16,18 +16,15 @@ class Solution:
              
         def dfs(node):
             
-            # Returning -1 when we reach null node in path i.e child of leaf node
             if not node :
-                return -1
+                return 0
             
             lHeight = dfs(node.left)
             rheight = dfs(node.right)
             
             nonlocal res
             
-            # result could be path of current sub-tree
-            # +2 for edge from node to both children
-            res = max(res,lHeight+rheight+2)
+            res = max(res,lHeight+rheight)
             
             # returning maximum of left and right child
             return 1 + max(lHeight, rheight)
